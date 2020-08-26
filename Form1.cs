@@ -79,7 +79,7 @@ namespace 实体生成器
 
         private void button_toClass_Click(object sender, EventArgs e)
         {
-            GoEntity();
+            WpfEntity();
         }
         private void WpfEntity()
         {
@@ -102,7 +102,7 @@ namespace 实体生成器
             sb.AppendLine("}");
             textBox_result.Text = sb.ToString();
         }
-        private void GoEntity()
+        private void GoEntity(string type)
         {
             string tableName = listView_one_tables.SelectedItems[0].SubItems[1].Text;
             StringBuilder sb = new StringBuilder();
@@ -114,12 +114,12 @@ namespace 实体生成器
                 string name = item.SubItems[1].Text;
 
                 name = name.Substring(0, 1).ToUpper() + name.Substring(1);
-                sb.AppendLine(name + " " + typename+" `json:\""+name+"\"`");
+                sb.AppendLine(name + " " + typename + " `" + type + ":\"" + name + ",omitempty\" json:\"" + name + "\"`");
                 cols.Append("&tableStruct."+name+",");
             }
             sb.AppendLine("}");
 
-            sb.AppendLine("rows.Scan(" + cols .ToString().TrimEnd(',')+ ")");
+            //sb.AppendLine("rows.Scan(" + cols .ToString().TrimEnd(',')+ ")");
             textBox_result.Text = sb.ToString();
         }
         private string GoChangeToCSharpType(string type)
@@ -316,6 +316,16 @@ namespace 实体生成器
                 return "";
             }
             return allStr.Substring(index1, index2);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GoEntity("bson");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            GoEntity("db");
         }
     }
 }

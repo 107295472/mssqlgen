@@ -52,6 +52,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.textBox_result = new System.Windows.Forms.TextBox();
             this.button_toClass = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -275,7 +277,7 @@
             // 
             // button_toClass
             // 
-            this.button_toClass.Location = new System.Drawing.Point(661, 378);
+            this.button_toClass.Location = new System.Drawing.Point(661, 217);
             this.button_toClass.Name = "button_toClass";
             this.button_toClass.Size = new System.Drawing.Size(74, 31);
             this.button_toClass.TabIndex = 24;
@@ -283,11 +285,33 @@
             this.button_toClass.UseVisualStyleBackColor = true;
             this.button_toClass.Click += new System.EventHandler(this.button_toClass_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(661, 310);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(74, 31);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "生成=>bson";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(661, 399);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(74, 31);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "生成=>db";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1181, 640);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button_toClass);
             this.Controls.Add(this.textBox_result);
             this.Controls.Add(this.groupBox1);
@@ -330,6 +354,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox_result;
         private System.Windows.Forms.Button button_toClass;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
