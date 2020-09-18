@@ -128,10 +128,10 @@ namespace 实体生成器
             switch (type.ToLower())
             {
                 case "int":
-                    reval = "int32";
+                    reval = "int64";
                     break;
                 case "text":
-                    reval = "string";
+                    reval = "sql.NullString";
                     break;
                 case "bigint":
                     reval = "int64";
@@ -143,7 +143,7 @@ namespace 实体生成器
                     reval = "bool";
                     break;
                 case "char":
-                    reval = "string";
+                    reval = "sql.NullString";
                     break;
                 case "datetime":
                     reval = "time.Time";
@@ -152,7 +152,7 @@ namespace 实体生成器
                     reval = "float64";
                     break;
                 case "float":
-                    reval = "float32";
+                    reval = "float64";
                     break;
                 case "money":
                     reval = "float64";
@@ -167,7 +167,7 @@ namespace 实体生成器
                     reval = "float64";
                     break;
                 case "nvarchar":
-                    reval = "string";
+                    reval = "sql.NullString";
                     break;
                 case "smalldatetime":
                     reval = "time.Time";
@@ -182,10 +182,10 @@ namespace 实体生成器
                     reval = "byte";
                     break;
                 case "varchar":
-                    reval = "string";
+                    reval = "sql.NullString";
                     break;
                 default:
-                    reval = "string";
+                    reval = "sql.NullString";
                     break;
             }
             return reval;
