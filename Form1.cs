@@ -79,7 +79,26 @@ namespace 实体生成器
 
         private void button_toClass_Click(object sender, EventArgs e)
         {
-            WpfEntity();
+            Entity();
+        }
+        private void Entity()
+        {
+            string tableName = listView_one_tables.SelectedItems[0].SubItems[1].Text;
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("public class " + tableName);
+            sb.AppendLine("{");
+            foreach (ListViewItem item in listView_one_tableStruct.Items)
+            {
+                string typename = ChangeToCSharpType(item.SubItems[2].Text);
+                string name = item.SubItems[1].Text;
+                name = name.Substring(0, 1) + name.Substring(1);
+                sb.Append("    public " + typename + " " + name);
+                sb.Append(" {");
+                sb.Append("get;set;");
+                sb.AppendLine("}");
+            }
+            sb.AppendLine("}");
+            textBox_result.Text = sb.ToString();
         }
         private void WpfEntity()
         {
